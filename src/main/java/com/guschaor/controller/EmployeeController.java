@@ -6,6 +6,7 @@ import com.guschaor.service.IEmployeeService;
 import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,6 +39,7 @@ public class EmployeeController {
    * @return Response entity.
    */
   @GetMapping(value = "/getAllEmployees")
+  @CrossOrigin(origins = "*")
   public ResponseEntity<List<EmployeeDTO>> getAllEmployees() {
     List<EmployeeDTO> result = employeeService.getAllEmployees();
     if(result == null){
@@ -51,6 +53,7 @@ public class EmployeeController {
    * @return Response entity.
    */
   @GetMapping(value = "/{employeeId}")
+  @CrossOrigin(origins = "*")
   public ResponseEntity<EmployeeDTO> getEmployeeById(@PathVariable Long employeeId) {
     EmployeeDTO result = employeeService.getEmployeeById(employeeId);
     if(result == null){

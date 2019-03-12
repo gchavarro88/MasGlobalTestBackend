@@ -19,7 +19,6 @@ import org.springframework.web.client.RestTemplate;
 @Repository
 public class EmployeeRepositoryImpl implements IEmployeeRepository {
 
-  @Autowired
   private String employeesUrl;
 
   public EmployeeRepositoryImpl(@Value("${database.url}") String employeesUrl){
