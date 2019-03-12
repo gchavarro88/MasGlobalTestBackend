@@ -8,6 +8,7 @@ import com.guschaor.repository.IEmployeeRepository;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
@@ -18,8 +19,12 @@ import org.springframework.web.client.RestTemplate;
 @Repository
 public class EmployeeRepositoryImpl implements IEmployeeRepository {
 
-  @Value("${database.url}")
+  @Autowired
   private String employeesUrl;
+
+  public EmployeeRepositoryImpl(@Value("${database.url}") String employeesUrl){
+    this.employeesUrl = employeesUrl;
+  }
 
   @Override
   public Optional<List<EmployeeDTO>> getAllEmployes() {
