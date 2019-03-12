@@ -22,4 +22,7 @@ public class EmployeeDTO {
 
   /** Monthly Salary Value*/
   Double monthlySalary;
+
+  /** Annual Salary Value*/
+  Double AnnualSalary;
 }
