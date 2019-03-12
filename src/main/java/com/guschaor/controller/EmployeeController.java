@@ -1,11 +1,13 @@
 package com.guschaor.controller;
 
 import com.guschaor.common.dto.EmployeeDTO;
+import com.guschaor.factory.IEmployeeFactory;
 import com.guschaor.service.IEmployeeService;
 import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +39,11 @@ public class EmployeeController {
    */
   @GetMapping(value = "/getAllEmployees")
   public ResponseEntity<List<EmployeeDTO>> getAllEmployees() {
-    return new ResponseEntity<>(new List<EmployeeDTO>, HttpStatus.OK);
+    List<EmployeeDTO> result = employeeService.getAllEmployees();
+    if(result == null){
+      return new ResponseEntity<>(result, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+    return new ResponseEntity<>(result, HttpStatus.OK);
   }
 
   /**
@@ -45,8 +51,12 @@ public class EmployeeController {
    * @return Response entity.
    */
   @GetMapping(value = "/{employeeId}")
-  public ResponseEntity<EmployeeDTO> getEmployeeById() {
-    return new ResponseEntity<>(new EmployeeDTO(), HttpStatus.OK);
+  public ResponseEntity<EmployeeDTO> getEmployeeById(@PathVariable Long employeeId) {
+    EmployeeDTO result = employeeService.getEmployeeById(employeeId);
+    if(result == null){
+      return new ResponseEntity<>(result, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+    return new ResponseEntity<>(result, HttpStatus.OK);
   }
 
 }

@@ -1,0 +1,12 @@
+server:
+  port: 9090
+  compression:
+    enabled: true
+
+info:
+  app:
+    name: mas-global-test
+    version: 1.0
+
+database:
+  url: http://masglobaltestapi.azurewebsites.net/api/employees
