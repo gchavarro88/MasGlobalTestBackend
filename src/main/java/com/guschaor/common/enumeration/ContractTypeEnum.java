@@ -1,10 +1,5 @@
 package com.guschaor.common.enumeration;
 
-/**
- * Enum to manage the different types of contract.
- *
- * @author guschaor 11/03/2019.
- */
 public enum ContractTypeEnum {
 
   /**
