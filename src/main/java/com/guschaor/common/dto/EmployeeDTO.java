@@ -24,7 +24,7 @@ public class EmployeeDTO {
   private Double monthlySalary;
 
   /** Annual Salary Value*/
-  private Double AnnualSalary;
+  private Double annualSalary;
 
   public EmployeeDTO(){}
 
@@ -104,11 +104,11 @@ public class EmployeeDTO {
 
   /** Annual Salary Value*/
   public Double getAnnualSalary() {
-    return AnnualSalary;
+    return annualSalary;
   }
 
   public void setAnnualSalary(Double annualSalary) {
-    AnnualSalary = annualSalary;
+    this.annualSalary = annualSalary;
   }
 
   @Override
@@ -121,7 +121,7 @@ public class EmployeeDTO {
         ", roleName='" + roleName + '\'' +
         ", hourlySalary=" + hourlySalary +
         ", monthlySalary=" + monthlySalary +
-        ", AnnualSalary=" + AnnualSalary +
+        ", annualSalary=" + annualSalary +
         '}';
   }
 }
